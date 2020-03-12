@@ -10,7 +10,8 @@
   <script src="node_modules/jquery/dist/jquery.js"></script>
 
   <!-- bootstrap -->
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">  
+  <!--link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"-->  
+  <link rel="stylesheet" href="themes/bootstrap/darkly/bootstrap.css">
   <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
   <!-- vue -->
@@ -21,6 +22,9 @@
   <link rel="stylesheet" href="node_modules/bootstrap-vue/dist/bootstrap-vue.css">  
   <script src="node_modules/bootstrap-vue/dist/bootstrap-vue.js"></script>
 
+  <!-- axios for web requests -->
+  <script src="node_modules/axios/dist/axios.js"></script>
+
   <!-- custom -->
   <link rel="stylesheet" href="carnival-workspace.css">  
 </head>
@@ -28,9 +32,44 @@
 <body>
 
   <div id="app">
-    {{ message }}
+
+    <!--b-container class="bv-example-row">
+      <b-row>
+        <b-col>1 of 2</b-col>
+        <b-col>2 of 2</b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>1 of 3</b-col>
+        <b-col>2 of 3</b-col>
+        <b-col>3 of 3</b-col>
+      </b-row>
+    </b-container-->
+
+    <b-container>
+      <b-jumbotron header="CarnivalVue" lead="Carnival Graph Model Validation">
+        <p>For more information visit our website</p>
+        <b-btn variant="primary" href="https://github.com/augustearth/carnival-vue">More Info</b-btn>
+      </b-jumbotron>
+
+      <b-form-group
+        horizontal
+        :label-cols="4"
+        description="Let us know your name."
+        label="Enter your name"
+      >
+        <b-form-input v-model.trim="name"></b-form-input>
+      </b-form-group>
+
+      <b-alert variant="success" :show="showAlert">Hello {{ name }}</b-alert>
+
+      <p>{{ info}}</p>
+    </b-container>
+
+
   </div>
 
+  <!-- Vue app code -->
   <script src="carnival-workspace.js"></script>
 
 </body>
