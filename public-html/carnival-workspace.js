@@ -3,10 +3,12 @@
 
 var app = new Vue({
   el: '#app',
-  data: {
-    name: '',
-    message: 'WHAT THE FUCK!',
-    info: null
+  data: function() { 
+  	return {
+    	name: '',
+    	message: 'WHAT THE FUCK!',
+    	info: null
+  	}
   },
   computed: {
     showAlert() {
@@ -15,7 +17,7 @@ var app = new Vue({
   },
   mounted () {
     axios
-      .get('http://localhost/cm/person/list/')
+      .get('http://localhost:8081/person/list/')
       .then(response => (this.info = response))
   }  
 })

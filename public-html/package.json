@@ -1,7 +1,8 @@
 {
   "name": "carnival-vue",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demonstration Carnival Vue app.",
+  "private": true,
   "main": "carnival-workspace.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +20,9 @@
     "bootstrap-vue": "^2.6.1",
     "jquery": "^3.4.1",
     "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }
