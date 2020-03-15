@@ -18,6 +18,7 @@ var app = new Vue({
   mounted () {
     axios
       .get('http://localhost:8081/person/list/')
+      //.get('https://api.chucknorris.io/jokes/random')
       .then(response => (this.info = response))
   }  
 })
