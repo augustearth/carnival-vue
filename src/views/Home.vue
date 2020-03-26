@@ -1,19 +1,10 @@
 <template>
   <div class="home">
-    <img
-      alt="Vue logo"
-      src="../assets/carnival-squash.jpg"
-      width="25%"
-      height="25%"
-    />
+    <img alt="Vue logo" src="../assets/carnival-squash.jpg" width="25%" height="25%" />
     <b-container>
       <b-jumbotron header="CarnivalVue" lead="Carnival Graph Model Validation">
         <p>For more information visit our website</p>
-        <b-btn
-          variant="primary"
-          href="https://github.com/augustearth/carnival-vue"
-          >More Info</b-btn
-        >
+        <b-btn variant="primary" href="https://github.com/augustearth/carnival-vue">More Info</b-btn>
       </b-jumbotron>
 
       <b-form-group

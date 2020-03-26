@@ -1,7 +1,56 @@
-import PersonService from "@/services/PersonService.js";
+import CarnivalMicronautService from "@/services/CarnivalMicronautService.js";
 
 export const namespaced = true;
 
+export const state = {
+  vertices: [],
+  verticesTotal: 0,
+  vertex: {},
+  perPage: 3
+};
+
+export const mutations = {
+  ADD_VERTEX(state, vertex) {
+    state.persons.push(vertex);
+  },
+  SET_VERTICES(state, vertices) {
+    state.vertices = vertices;
+  },
+  SET_VERTICES_TOTAL(state, verticesTotal) {
+    state.verticesTotal = verticesTotal;
+  },
+  SET_VERTEX(state, vertex) {
+    state.vertex = vertex;
+  }
+};
+
+export const actions = {
+  fetchVertices({ commit, dispatch, state }, { page }) {
+    return CarnivalMicronautService.getVertices(state.perPage, page)
+      .then(response => {
+        commit(
+          "SET_VERTICES_TOTAL",
+          parseInt(response.headers["x-total-count"])
+        );
+        commit("SET_VERTICES", response.data);
+      })
+      .catch(error => {
+        const notification = {
+          type: "error",
+          message: "There was a problem fetching vertices: " + error.message
+        };
+        dispatch("notification/add", notification, { root: true });
+      });
+  }
+};
+
+export const getters = {
+  getVertexByVertexId: state => id => {
+    return state.vertices.find(vertex => vertex.vertexId === id);
+  }
+};
+
+/*
 export const state = {
   persons: [],
   personsTotal: 0,
@@ -80,8 +129,10 @@ export const actions = {
     }
   }
 };
+
 export const getters = {
   getPersonById: state => id => {
     return state.persons.find(person => person.id === id);
   }
 };
+*/

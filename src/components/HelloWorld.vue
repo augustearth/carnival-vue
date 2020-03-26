@@ -1,13 +1,24 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>{{ person.persons }}</p>
+    <div v-for="vertex in vertex.vertices" v-bind:key="vertex.vertexId">
+      <b-card
+        :title="vertexCardTitle(vertex)"
+        :sub-title="vertexCardSubTitle(vertex)"
+      >
+        <ol>
+          <li v-for="(value, name) in vertex.properties" v-bind:key="name">
+            {{ name }} {{ value }}
+          </li>
+        </ol>
+      </b-card>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-//import store from '@/store/store'
+import store from "@/store/store";
 
 export default {
   name: "HelloWorld",
@@ -15,7 +26,20 @@ export default {
     msg: String
   },
   computed: {
-    ...mapState(["person"])
+    ...mapState(["vertex"])
+  },
+  methods: {
+    vertexCardTitle: function(vertex) {
+      // `this` points to the vm instance
+      return "Vertex " + vertex.vertexId;
+    },
+    vertexCardSubTitle: function(vertex) {
+      // `this` points to the vm instance
+      return vertex.vertexLabel;
+    }
+  },
+  mounted: function() {
+    store.dispatch("vertex/fetchVertices", { page: 0 });
   }
 };
 </script>
