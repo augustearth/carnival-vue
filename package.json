@@ -9,10 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
-    "bootstrap-vue": "^2.7.0",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
+    "tailwindcss": "^1.2.0",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
     "vue-router": "^3.1.5",
