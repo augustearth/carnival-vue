@@ -4,10 +4,20 @@ Carnival Vue is a demonstration web application that exercises parts of the Carn
 
 ## Getting Started
 
+### Pre-requisites
 
 1. Install [npm](https://www.npmjs.com/get-npm).
 2. Install [Vue CLI](https://cli.vuejs.org/).
+
+### Build carnival-vue
+```
+git clone https://github.com/augustearth/carnival-vue.git
+cd carnival-vue
+npm install
+npx vue-cli-service serve --port=7001
+```
 3. Clone the [carnival-vue](https://github.com/augustearth/carnival-vue) repository.
+
 
 ## Project setup
 
