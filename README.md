@@ -8,23 +8,26 @@ Carnival Vue is a demonstration web application that exercises parts of the Carn
 
 1. Install [npm](https://www.npmjs.com/get-npm).
 2. Install [Vue CLI](https://cli.vuejs.org/).
+3. Install [Carnival Micronaut](https://github.com/augustearth/carnival-micronaut).
 
-### Build carnival-vue
+## Quick Start
 ```
 git clone https://github.com/augustearth/carnival-vue.git
 cd carnival-vue
 npm install
 npx vue-cli-service serve --port=7001
 ```
-3. Clone the [carnival-vue](https://github.com/augustearth/carnival-vue) repository.
+
+- Go to `http://localhost:7001/`.
+- Type `Person` in the Label field and click Create.
+- You should see a new vertex with label 'Person' and a **constraint** error.
+- Type `Application` in the Label field and click Create.
+- You should see a new vertex with label 'Applicatio' and a **model** error.
+
 
 
 ## Project setup
 
-### Installs Javascript dependencies
-```
-npm install
-```
 
 ### Compiles and hot-reloads for development
 Default port (8080):
