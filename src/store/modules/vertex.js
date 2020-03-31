@@ -11,7 +11,7 @@ export const state = {
 
 export const mutations = {
   ADD_VERTEX(state, vertex) {
-    state.persons.push(vertex);
+    state.vertices.push(vertex);
   },
   SET_VERTICES(state, vertices) {
     state.vertices = vertices;
@@ -25,6 +25,34 @@ export const mutations = {
 };
 
 export const actions = {
+  createVertex({ commit, dispatch }, vertex) {
+    return new Promise((resolve /*, reject*/) => {
+      setTimeout(() => {
+        CarnivalMicronautService.postVertex(vertex)
+          .then(response => {
+            //console.log(response);
+            const createdVertex = response.data;
+            commit("ADD_VERTEX", createdVertex);
+            commit("SET_VERTEX", createdVertex);
+            const notification = {
+              type: "success",
+              message: "Your vertex has been created!"
+            };
+            dispatch("notification/add", notification, { root: true });
+            resolve();
+          })
+          .catch(error => {
+            const notification = {
+              type: "error",
+              message:
+                "There was a problem creating your person: " + error.message
+            };
+            dispatch("notification/add", notification, { root: true });
+            throw error;
+          });
+      }, 1000);
+    });
+  },
   fetchVertices({ commit, dispatch, state }, { page }) {
     return CarnivalMicronautService.getVertices(state.perPage, page)
       .then(response => {

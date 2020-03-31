@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: `http://localhost:8080`,
+  baseURL: `http://localhost:7000`,
   withCredentials: false, // This is the default
   headers: {
     Accept: "application/json",
@@ -18,21 +18,14 @@ export default {
       page == 0;
     }
     return apiClient.get("/graph/vertices");
+  },
+  postVertex(vertex) {
+    return apiClient.post("/graph/vertex", vertex);
+  },
+  checkModel() {
+    return apiClient.get("/graph/validation/check-model");
+  },
+  checkConstraints() {
+    return apiClient.get("/graph/validation/check-constraints");
   }
-  //getVertices(perPage, page) {
-  //  return apiClient.get("/person?_limit=" + perPage + "&_page=" + page);
-  //},
-  //getPerson(id) {
-  //  return apiClient.get("/person/" + id);
-  //},
-  //postPerson(person) {
-  //  return apiClient.post("/person", person);
-  //}
 };
-
-//mounted () {
-//  axios
-//    .get('http://localhost:8081/person/list/')
-//    //.get('https://api.chucknorris.io/jokes/random')
-//    .then(response => (this.info = response))
-//}

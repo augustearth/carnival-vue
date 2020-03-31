@@ -1,15 +1,7 @@
 import Vue from "vue";
-//import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store/store";
-
-// BootstrapVue
-//import "bootstrap/dist/css/bootstrap.css";
-//import "bootstrap-vue/dist/bootstrap-vue.css";
-//Vue.use(BootstrapVue);
-// Optionally install the BootstrapVue icon components plugin
-//Vue.use(IconsPlugin);
 
 // TailwindCSS
 import "@/assets/css/tailwind.css";
